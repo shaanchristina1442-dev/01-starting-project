@@ -1,53 +1,37 @@
-import index from ".index.jsx";
-import Header from "./components/Header";
-import CoreConcept from "./components/CoreConcept";
-import TabButton from "./components/TabButton/";
+import Header from "./components/header";
+import CoreConcept from "./components/coreconcept";
+import TabButton from "./components/tabButton/";
 import UserData from "./components/UserData";
 import { CORE_CONCEPTS } from "./data/core-concepts";
 
-
-function App() {
+export default function App() {
   return (
     <div>
-      <header>
-        <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
-        <h1>React Essentials</h1>
-        <p>
-          Fundamental React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
+      <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id="user-data">
+          <h2>Time to get started!</h2>
+          <ul>
+            <CoreConcept {...CORE_CONCEPTS[0]} />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
+            <CoreConcept {...CORE_CONCEPTS[4]} />
+          </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onClick = {handleSelect}>Flight 1</TabButton>
+            <TabButton onClick = {handleSelect}>Flight 2</TabButton>
+            <TabButton onClick = {handleSelect}>Flight 3</TabButton>
+            <TabButton onClick = {handleSelect}>Flight 4</TabButton>
+            <TabButton onClick = {handleSelect}>Flight 5</TabButton>
+          </menu>
+          <UserData />
+        </section>
       </main>
     </div>
   );
-  <div>
-    <Header />
-    <main>
-      <section id="user-data"> //attribute id added to section
-       <h2>Time to get started!</h2>
-       <ul>
-        <CoreConcept {...CORE_CONCEPTS[0]} /> //spread operator used to pass the properties of the object as props to the component
-        <CoreConcept {...CORE_CONCEPTS[1]} /> //spread operator used to pass the properties of the object as props to the component
-        <CoreConcept {...CORE_CONCEPTS[2]} />
-        <CoreConcept {...CORE_CONCEPTS[3]} />
-        <CoreConcept {...CORE_CONCEPTS[4]} />
-       </ul>
-      </section>
-      <section id = "examples"/>
-        <h2>Examples</h2>
-      <menu>
-        <TabButton> Item 1</TabButton>
-        <TabButton> Item 2</TabButton>
-        <TabButton> Item 3</TabButton>
-        <TabButton> Item 4</TabButton>
-        <TabButton> Item 5</TabButton>
-      </menu>
-      <UserData />
-      
-    </main>
-  </div>
 }
 
-export default App;

@@ -12,3 +12,33 @@ let crewman = {
 
 let selectedAircraft = aircraft[aircraftIndex];
 let selectedAirport = airports[airportIndex];
+
+function displayFlightInfo() {
+    console.log(`Flight Information:`);
+    let flightInfo = 'Flight Information:\n;'
+    flightInfo += `Aircraft: ${selectedAircraft}\n`;
+    flightInfo += `Airport: ${selectedAirport}\n`;
+    console.log(flightInfo);
+    console.log(add(100, 200));
+    console.log(add("New", "Flight"));
+}
+
+// Call functions that take functions as parameters
+function printFlight(myfunc){
+    console.log("flight 33");
+    myfunc();
+}
+
+setTimeout(printFlight, 2000); //prints in about 20 seconds
+
+sayHello(function(){
+    console.log("Bye")
+})
+
+sayHello(Bye);
+printFlight(myfunc);
+
+//functions as expressions
+let age = 41 + 2; // expression- combination of operands and operaters. 
+
+
